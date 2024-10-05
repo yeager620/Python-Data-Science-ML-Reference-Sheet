@@ -443,7 +443,16 @@ df_reset = df_multi.reset_index()
 \section{Linear Regression}
 \subsection{Explanation}
 
-Linear Regression is a foundational machine learning algorithm used for predicting a continuous target variable based on one or more input features. It assumes a linear relationship between the input variables and the target. The model learns coefficients for each feature to minimize the difference between the predicted and actual values, typically using methods like Ordinary Least Squares (OLS).
+Linear Regression is a foundational machine learning algorithm used for predicting a continuous target variable based on one or more input features. It assumes a linear relationship between the input variables and the target. The model learns coefficients for each feature to minimize the difference between the predicted and actual values, typically using methods like Ordinary Least Squares (OLS). 
+
+\subsubsection{Assumptions}
+\begin{itemize}
+    \item \textbf{Linearity:} The relationship between the independent variables and the dependent variable is linear.
+    \item \textbf{Independence:} Observations are independent of each other.
+    \item \textbf{Homoscedasticity:} The residuals have constant variance at every level of the independent variables.
+    \item \textbf{Normality:} The residuals of the model are normally distributed.
+    \item \textbf{No Multicollinearity:} Independent variables are not highly correlated with each other.
+\end{itemize}
 
 \subsection{From Scratch}
 \begin{lstlisting}[caption=Linear Regression from Scratch]
@@ -480,7 +489,15 @@ predictions = model.predict(X_test)
 \section{Logistic Regression}
 \subsection{Explanation}
 
-Logistic Regression is a classification algorithm used to predict binary outcomes. Unlike Linear Regression, it models the probability that a given input belongs to a particular category using the logistic function. It is widely used in scenarios where the target variable is categorical, such as spam detection or disease diagnosis.
+Logistic Regression is a classification algorithm used to predict binary outcomes. Unlike Linear Regression, it models the probability that a given input belongs to a particular category using the logistic function. It is widely used in scenarios where the target variable is categorical, such as spam detection or disease diagnosis. Logistic Regression makes several assumptions to ensure accurate and reliable results:
+
+\begin{enumerate}
+    \item \textbf{Binary Outcome:} The dependent variable is binary.
+    \item \textbf{Independence of Observations:} Observations are independent of each other.
+    \item \textbf{No Multicollinearity:} Independent variables are not highly correlated with each other.
+    \item \textbf{Linearity of Logit:} The log odds of the outcome are a linear combination of the independent variables.
+    \item \textbf{Large Sample Size:} Logistic Regression requires a large sample size to provide reliable results.
+\end{enumerate}
 
 \subsection{From Scratch}
 \begin{lstlisting}[caption=Logistic Regression from Scratch]
@@ -525,7 +542,16 @@ predictions = model.predict(X_test)
 \section{Decision Trees}
 \subsection{Explanation}
 
-Decision Trees are versatile models used for both classification and regression tasks. They work by recursively splitting the dataset based on feature values that result in the most significant information gain or reduction in impurity. Decision Trees are easy to interpret but can be prone to overfitting, especially with deep trees.
+Decision Trees are versatile models used for both classification and regression tasks. They work by recursively splitting the dataset based on feature values that result in the most significant information gain or reduction in impurity. Decision Trees are easy to interpret but can be prone to overfitting, especially with deep trees. Decision Trees make the following assumptions:
+
+\begin{enumerate}
+    \item \textbf{Feature Independence:} Assumes that features are independent of each other.
+    \item \textbf{No Assumptions About Data Distribution:} Unlike linear models, Decision Trees do not assume any underlying distribution of the data.
+    \item \textbf{Handle Non-linear Relationships:} Capable of capturing non-linear relationships between features and the target.
+    \item \textbf{No Need for Feature Scaling:} Decision Trees are not affected by the scale of the features.
+    \item \textbf{Sufficient Data:} Requires a sufficient amount of data to make reliable splits, especially for deeper trees.
+\end{enumerate}
+
 
 \subsection{From Scratch}
 \begin{lstlisting}[caption=Decision Tree from Scratch]
@@ -614,7 +640,16 @@ predictions = model.predict(X_test)
 \section{Support Vector Machines (SVM)}
 \subsection{Explanation}
 
-Support Vector Machines are powerful classifiers that find the optimal hyperplane which maximizes the margin between different classes. They are effective in high-dimensional spaces and are versatile with different kernel functions (linear, polynomial, RBF) to handle non-linear separations. SVMs are robust against overfitting, especially in high-dimensional space.
+Support Vector Machines are powerful classifiers that find the optimal hyperplane which maximizes the margin between different classes. They are effective in high-dimensional spaces and are versatile with different kernel functions (linear, polynomial, RBF) to handle non-linear separations. SVMs are robust against overfitting, especially in high-dimensional space. Support Vector Machines operate under the following assumptions:
+
+\begin{enumerate}
+    \item \textbf{Linearly Separable Data (for linear kernel):} Assumes that the data can be separated by a hyperplane.
+    \item \textbf{Clear Margin of Separation:} Assumes that there is a clear margin between the classes.
+    \item \textbf{No Overlapping Classes:} Assumes that the classes do not overlap significantly.
+    \item \textbf{Independence of Features:} Assumes that features are independent.
+    \item \textbf{High Dimensionality:} Performs well in high-dimensional spaces.
+    \item \textbf{Effective Kernel Selection:} Assumes that an appropriate kernel is chosen to handle non-linear relationships.
+\end{enumerate}
 
 \subsection{From Scratch}
 \begin{lstlisting}[caption=SVM from Scratch]
@@ -660,7 +695,15 @@ predictions = model.predict(X_test)
 \section{k-Nearest Neighbors (k-NN)}
 \subsection{Explanation}
 
-k-Nearest Neighbors is a simple, instance-based learning algorithm used for classification and regression. It classifies a data point based on how its neighbors are classified. The value of $k$ determines the number of neighbors to consider, and the choice of distance metric can impact performance. k-NN is intuitive and easy to implement but can be computationally intensive with large datasets.
+k-Nearest Neighbors is a simple, instance-based learning algorithm used for classification and regression. It classifies a data point based on how its neighbors are classified. The value of $k$ determines the number of neighbors to consider, and the choice of distance metric can impact performance. k-NN is intuitive and easy to implement but can be computationally intensive with large datasets. k-Nearest Neighbors makes the following assumptions:
+
+\begin{enumerate}
+    \item \textbf{Feature Relevance:} Assumes that all features are relevant and contribute equally to the distance metric.
+    \item \textbf{Feature Scaling:} Assumes that features are scaled similarly since distance calculations are sensitive to the scale.
+    \item \textbf{Local Consistency:} Assumes that similar instances are near each other in the feature space.
+    \item \textbf{Sufficient Data:} Requires a sufficient amount of training data to provide accurate neighbors.
+    \item \textbf{Noisy Data:} Sensitive to noisy data and outliers.
+\end{enumerate}
 
 \subsection{From Scratch}
 \begin{lstlisting}[caption=k-NN from Scratch]
@@ -698,7 +741,15 @@ predictions = model.predict(X_test)
 \section{k-Means Clustering}
 \subsection{Explanation}
 
-k-Means is an unsupervised learning algorithm used for clustering data into $k$ distinct groups based on feature similarity. It partitions the dataset by minimizing the within-cluster sum of squares. k-Means is efficient and widely used but requires specifying the number of clusters in advance and can be sensitive to initial centroid placement.
+k-Means is an unsupervised learning algorithm used for clustering data into $k$ distinct groups based on feature similarity. It partitions the dataset by minimizing the within-cluster sum of squares. k-Means is efficient and widely used but requires specifying the number of clusters in advance and can be sensitive to initial centroid placement. k-Means Clustering operates under the following assumptions:
+
+\begin{enumerate}
+    \item \textbf{Spherical Clusters:} Assumes that clusters are spherical and equally sized.
+    \item \textbf{Feature Scaling:} Assumes that all features contribute equally to the distance calculations, necessitating feature scaling.
+    \item \textbf{No Outliers:} Sensitive to outliers which can skew the centroid positions.
+    \item \textbf{Initial Centroid Selection:} Assumes that initial centroids are chosen appropriately to avoid convergence to local minima.
+    \item \textbf{Clusters are Convex:} Assumes that clusters are convex shapes in the feature space.
+\end{enumerate}
 
 \subsection{From Scratch}
 \begin{lstlisting}[caption=k-Means Clustering from Scratch]
@@ -739,7 +790,16 @@ labels = model.predict(X_test)
 \section{Random Forest}
 \subsection{Explanation}
 
-Random Forest is an ensemble learning method that constructs multiple decision trees during training and outputs the mode of the classes (classification) or mean prediction (regression) of the individual trees. It reduces overfitting by averaging multiple trees and is robust against noise and outliers. Random Forests are versatile and can handle large datasets with high dimensionality.
+Random Forest is an ensemble learning method that constructs multiple decision trees during training and outputs the mode of the classes (classification) or mean prediction (regression) of the individual trees. It reduces overfitting by averaging multiple trees and is robust against noise and outliers. Random Forests are versatile and can handle large datasets with high dimensionality. Random Forests operate under the following assumptions:
+
+\begin{enumerate}
+    \item \textbf{Feature Independence:} Assumes that features are independent of each other.
+    \item \textbf{No Assumptions About Data Distribution:} Unlike linear models, Random Forests do not assume any underlying distribution of the data.
+    \item \textbf{Handle Non-linear Relationships:} Capable of capturing complex, non-linear relationships between features and the target.
+    \item \textbf{Feature Scaling Not Required:} Random Forests are not sensitive to the scale of the features.
+    \item \textbf{Sufficient Data and Diversity:} Requires a sufficient amount of data and diversity among trees to improve generalization.
+    \item \textbf{No Overfitting (with Ensemble):} The ensemble nature helps in reducing overfitting compared to individual Decision Trees.
+\end{enumerate}
 
 \subsection{From Scratch}
 \begin{lstlisting}[caption=Random Forest from Scratch]
@@ -844,7 +904,16 @@ predictions = model.predict(X_test)
 
 \section{Gradient Boosting}
 \subsection{Explanation}
-Gradient Boosting is an ensemble technique that builds models sequentially, where each new model attempts to correct the errors of the previous ones. It optimizes a loss function over function space by iteratively choosing a model that points in the negative gradient direction. Gradient Boosting is highly effective for both classification and regression tasks but can be prone to overfitting if not properly regularized.
+Gradient Boosting is an ensemble technique that builds models sequentially, where each new model attempts to correct the errors of the previous ones. It optimizes a loss function over function space by iteratively choosing a model that points in the negative gradient direction. Gradient Boosting is highly effective for both classification and regression tasks but can be prone to overfitting if not properly regularized. Gradient Boosting operates under the following assumptions:
+
+\begin{enumerate}
+    \item \textbf{Additive Model:} Assumes that the final model is a sum of weak learners (typically Decision Trees).
+    \item \textbf{Loss Function Differentiability:} Requires a differentiable loss function to compute gradients.
+    \item \textbf{Independence of Trees:} Each tree is built to correct the errors of the previous trees, assuming trees are not highly correlated.
+    \item \textbf{No Strong Multicollinearity:} Assumes that features are not highly correlated, as it can lead to overfitting.
+    \item \textbf{Sufficient Data:} Requires a large amount of data to capture complex patterns.
+    \item \textbf{Feature Importance:} Assumes that the features contributing most to reducing the loss are the most important.
+\end{enumerate}
 
 \subsection{From Scratch}
 \begin{lstlisting}[caption=Gradient Boosting from Scratch]
@@ -952,6 +1021,15 @@ predictions = model.predict(X_test)
 
 Neural Networks are a class of machine learning models inspired by the human brain's structure. They consist of layers of interconnected neurons that process input data through weighted connections and activation functions. Neural Networks are highly flexible and can model complex, non-linear relationships, making them suitable for tasks such as image recognition, natural language processing, and more. However, they generally have a low level of interpretability (closer to black-box) and require substantial computational resources and data to train effectively.
 
+\subsubsection{Assumptions}
+\begin{itemize}
+    \item \textbf{Linearity and Non-linearity:} Neural networks can model both linear and non-linear relationships.
+    \item \textbf{Sufficient Data:} Requires large amounts of data to train effectively and avoid overfitting.
+    \item \textbf{Independent Observations:} Assumes that training examples are independent of each other.
+    \item \textbf{Feature Scaling:} Assumes that features are scaled appropriately for gradient-based optimization.
+    \item \textbf{Appropriate Architecture:} Assumes that the network architecture (number of layers, neurons) is suitable for the problem.
+\end{itemize}
+
 \subsection{From Scratch}
 \begin{lstlisting}[caption=Neural Network from Scratch]
 import numpy as np
@@ -1018,7 +1096,14 @@ predictions = model.predict(X_test)
 \subsection{t-Test}
 
 \subsubsection{Explanation}
-The t-test is used to determine if there is a significant difference between the means of two groups, which may be related in certain features. 
+The t-test is used to determine if there is a significant difference between the means of two groups, which may be related in certain features. The t-Test operates under the following assumptions:
+
+\begin{enumerate}
+    \item \textbf{Independence of Observations:} The samples are independent of each other.
+    \item \textbf{Normality:} The data in each group are approximately normally distributed.
+    \item \textbf{Homogeneity of Variances (for equal variance t-test):} The variances in the two groups are equal.
+    \item \textbf{Scale of Measurement:} The dependent variable is measured on an interval or ratio scale.
+\end{enumerate}
 
 \subsubsection{From Scratch}
 \begin{lstlisting}[caption=t-Test from Scratch]
@@ -1044,7 +1129,13 @@ t_stat, p_value = stats.ttest_ind(sample1, sample2, equal_var=False)
 \subsection{Mann-Whitney U Test (u-Test)}
 
 \subsubsection{Explanation}
-The Mann-Whitney U test is a non-parametric test used to determine whether there is a difference between two independent samples. It does not assume normal distribution.
+The Mann-Whitney U test is a non-parametric test used to determine whether there is a difference between two independent samples. It does not assume normal distribution. The Mann-Whitney U test operates under the following assumptions:
+
+\begin{enumerate}
+    \item \textbf{Independent Samples:} The two samples are independent of each other.
+    \item \textbf{Ordinal or Continuous Data:} The dependent variable should be ordinal or continuous.
+    \item \textbf{Shape of Distributions:} Assumes that the distributions of both groups have the same shape.
+\end{enumerate}
 
 \subsubsection{From Scratch}
 \begin{lstlisting}[caption=Mann-Whitney U Test from Scratch]
@@ -1070,7 +1161,13 @@ U, p = stats.mannwhitneyu(sample1, sample2, alternative='two-sided')
 
 \subsubsection{Explanation}
 The z-test is used to determine whether there is a significant difference between sample and population means, or between two sample means, when the population variance is known.
-
+\subsubsection{Assumptions}
+\begin{itemize}
+    \item \textbf{Independence:} The samples are independent of each other.
+    \item \textbf{Normality:} The sampling distribution of the mean is normal (requires large sample sizes or known population variance).
+    \item \textbf{Known Population Variance:} Assumes that the population variances are known.
+    \item \textbf{Scale of Measurement:} The dependent variable should be measured on a continuous scale.
+\end{itemize}
 \subsubsection{From Scratch}
 \begin{lstlisting}[caption=z-Test from Scratch]
 import numpy as np
@@ -1094,6 +1191,14 @@ z_stat, p_value = ztest(sample1, sample2, value=0, alternative='two-sided')
 \subsubsection{Explanation}
 The Granger Causality test is used to determine whether one time series can predict another time series. It is based on the idea that if a signal $X$ Granger-causes a signal $Y$, then past values of $X$ should contain information that helps predict $Y$ above and beyond the information contained in past values of $Y$ alone.
 
+\subsubsection{Assumptions}
+\begin{itemize}
+    \item \textbf{Stationarity:} The time series data should be stationary.
+    \item \textbf{No Perfect Multicollinearity:} The explanatory variables should not be perfectly correlated.
+    \item \textbf{Lag Order Selection:} The appropriate number of lags should be chosen for the test.
+    \item \textbf{Linearity:} The relationship between the variables is linear.
+\end{itemize}
+
 \subsubsection{Using \texttt{statsmodels}}
 \fromscratch Granger causality is complex to implement from scratch due to the need for vector autoregressive models. Therefore, using libraries like \texttt{statsmodels} is recommended.
 
@@ -1108,7 +1213,14 @@ grangercausalitytests(data, maxlag=4)
 \subsection{Chi-Squared Test}
 
 \subsubsection{Explanation}
-The Chi-Squared test is used to determine whether there is a significant association between two categorical variables.
+The Chi-Squared test is used to determine whether there is a significant association between two categorical variables. 
+
+\subsubsection{Assumptions}
+\begin{itemize}
+    \item \textbf{Independence:} Observations are independent of each other.
+    \item \textbf{Expected Frequency:} Each expected frequency in the contingency table should be at least 5.
+    \item \textbf{Scale of Measurement:} Both variables should be categorical.
+\end{itemize}
 
 \subsubsection{From Scratch}
 \begin{lstlisting}[caption=Chi-Squared Test from Scratch]
